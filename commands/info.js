@@ -18,7 +18,6 @@ module.exports = {
 		// if(interaction.option.getSubcommand() === 'user') {
 		// 	console.log(interaction.message);
 		// }
-		console.log(interaction.options.getSubcommand());
 		if(interaction.options.getSubcommand() === 'user') {
 			if(interaction.options.getUser('target')) {
 				await interaction.reply(`${interaction.options.getUser('target').tag}`);
@@ -26,6 +25,9 @@ module.exports = {
 			else {
 				await interaction.reply(`${interaction.user.tag}`);
 			}
+		}
+		else if(interaction.options.getSubcommand() === 'server') {
+			await interaction.reply(`${interaction.guild.name}`);
 		}
 	}
 };
